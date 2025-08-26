@@ -90,7 +90,7 @@ end % main
 function out = run_linearfit_and_compare(R4, theta_deg, Rfull_z, dirlist, Sspd, speeds, stim_mode)
     % Run solver on R4 and compare to argmax headings.
     [~, ang_w, ~, quad_counts, ~, ~, UV] = ...
-        linearfit_radical(R4, Sspd, dirlist, speeds, lower(stim_mode)); 
+        linearfit_radical_ad(R4, Sspd, dirlist, speeds, lower(stim_mode)); 
     ang_deg = wrap360(rad2deg(ang_w));
 
     % population heading from your UV summary

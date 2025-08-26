@@ -80,7 +80,7 @@ R8 = (Xp8 * BxBy.').';                    % nUnits×8 predicted at RSI angles
 %% 2) Run RSI_radicalflow (UNCHANGED)
 resolution = [4320,4320];% [1024 1024];                 % square to avoid ellipse bias
 [RSI_ik, best_deg, RSI_global, pop_vec, fwd, dev] = ...
-    RSI_radicalflow(R8, resolution, lower(stim_mode));      %#ok<ASGLU>
+    RSI_radicalflow_ad(R8, resolution, lower(stim_mode));      %#ok<ASGLU>
 
 % population heading from RSI:
 pop_heading = wrap360(rad2deg(atan2(pop_vec(2), pop_vec(1))));
