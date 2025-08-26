@@ -1,0 +1,50 @@
+load VIP.mat;
+
+%% plot heading tuning of all neurons during passive heading
+units = experiment1.units;
+nunits = numel(units);
+% vestibular condition
+figure; hold on; for i=1:nunits, plot(units(i).ves.stim_global,units(i).ves.resp_global); end
+title('vestibular condition'); xlabel('heading angle (deg)'); ylabel('firing rate (spk/s)');
+% visual condition
+figure; hold on; for i=1:nunits, plot(units(i).vis.stim_global,units(i).vis.resp_global); end
+title('visual condition'); xlabel('heading angle (deg)'); ylabel('firing rate (spk/s)');
+
+%% plot heading tuning of all neurons during heading discrimination task
+units = experiment2.units;
+nunits = numel(units);
+% vestibular condition
+figure; hold on; for i=1:nunits, plot(units(i).ves.stim_global,units(i).ves.resp_global); end
+title('Vestibular condition'); xlabel('Heading angle (deg)'); ylabel('Firing rate (spk/s)');
+% visual condition
+figure; hold on; for i=1:nunits, plot(units(i).vis.stim_global,units(i).vis.resp_global); end
+title('Visual condition'); xlabel('Heading angle (deg)'); ylabel('Firing rate (spk/s)');
+% combined condition
+figure; hold on; for i=1:nunits, plot(units(i).vis.stim_global,units(i).com.resp_global); end
+title('Combined visual/vestibular condition'); xlabel('Heading angle (deg)'); ylabel('Firing rate (spk/s)');
+
+%% plot neuronal choice probability as a function of neuronal threshold
+units = experiment2.units;
+nunits = numel(units);
+% vestibular condition
+figure; hold on; for i=1:nunits, plot(units(i).ves.thresh,units(i).ves.cp,'.r'); end
+title('Vestibular condition'); xlabel('Neuronal threshold (deg)'); ylabel('Choice probability');
+set(gca,'xscale','log');
+% visual condition
+figure; hold on; for i=1:nunits, plot(units(i).vis.thresh,units(i).vis.cp,'.g'); end
+title('Visual condition'); xlabel('Neuronal threshold (deg)'); ylabel('Choice probability');
+set(gca,'xscale','log');
+% combined condition
+figure; hold on; for i=1:nunits, plot(units(i).vis.thresh,units(i).com.cp,'.b'); end
+title('Combined visual/vestibular condition'); xlabel('Neuronal threshold (deg)'); ylabel('Choice probability');
+set(gca,'xscale','log');
+
+%% plot noise correlation between neurons as a function of signal correlation
+pairs = experiment3.pairs;
+npairs = numel(pairs);
+% vestibular condition
+figure; hold on; for i=1:npairs, plot(pairs(i).ves.corr_signal,pairs(i).ves.corr_noise,'.r'); end
+title('vestibular condition'); xlabel('Signal correlation'); ylabel('Noise correlation'); axis([-1 1 -1 1]);
+% visual condition
+figure; hold on; for i=1:npairs, plot(pairs(i).vis.corr_signal,pairs(i).vis.corr_noise,'.g'); end
+title('visual condition'); xlabel('Signal correlation'); ylabel('Noise correlation'); axis([-1 1 -1 1]);

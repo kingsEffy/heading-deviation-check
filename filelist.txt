@@ -1,0 +1,11 @@
+# CRCNS.org 'stc-1' dataset files
+# To use this for fetching files, comment out files that are
+# not needed by putting a '#' as the first character on the line (default mode)
+# or put a '+' as the first character to specifiy files to be fetched (+ mode).
+# mode='default' (change to '+' for + mode).
+ demo.m	2746 (2.6 KB)
+ docs/crcns_stc-1_data_description.docx	38584 (37.6 KB)
+ docs/crcns_stc-1_data_description.pdf	108958 (106.4 KB)
+ MSTd.mat	65358 (63.8 KB)
+ VIP.mat	45545 (44.4 KB)
+ checksums.md5	318
